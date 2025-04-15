@@ -6,25 +6,46 @@ This guide walks you through deploying container-based applications on Azure, wi
 
 ---
 
-## Table of Contents
+## 📚 Table of Contents
 
-1. [📖 Overview](#-overview)
-
-2. [⚙️ Prerequisites](#️-prerequisites)
-
-3. [📊 ACA vs. ACI](#-aca-vs-aci)
-
-4. [🚀 Getting Started with ACA](#-getting-started-with-aca)
-
-5. [🔗 Further Guides](#-further-guides)
-
-6. [🚀 Summary](#-summary)
+1. [📖 Overview](#-overview)  
+2. [📦 One-Command Setup (macOS)](#-one-command-setup-macos)  
+3. [⚙️ Prerequisites](#️-prerequisites)  
+4. [📊 ACA vs. ACI](#-aca-vs-aci)  
+5. [🚀 Getting Started with ACA](#-getting-started-with-aca)  
+6. [🔗 Further Guides](#-further-guides)  
+7. [🚀 Summary](#-summary)  
 
 ---
 
 ## 📖 Overview
 
-Azure offers multiple ways to run containers. **ACI** is great for simple and short-lived workloads, while **ACA** provides a powerful, scalable platform for modern applications and microservices. This guide focuses on ACA as the long-term solution for scalable, production-grade deployments.
+Azure offers multiple ways to run containers. **ACI** is great for simple and short-lived workloads, while **ACA** provides a powerful, scalable platform for modern applications and microservices.
+
+This guide focuses on ACA as the long-term solution for scalable, production-grade deployments.  
+To make onboarding easy, we provide a **single shell script** that:
+
+- Automatically installs the tooling under `~/tools/az-deploy`
+- Sets up a globally accessible command: `az-deploy`
+- Launches an interactive CLI assistant to help you deploy test containers and more
+
+---
+
+## 📦 One-Command Setup (macOS)
+
+Install Azure Deployment Tools under `~/tools/az-deploy`, create a global `az-deploy` command, and make it persistent:
+
+Simply copy and run the following block in your terminal:
+
+```bash
+curl -s https://raw.githubusercontent.com/Sokrates1989/azure-deployment-guide/main/setup/macos.sh | bash
+```
+
+You can then use it from anywhere:
+
+```bash
+az-deploy --test   # or: az-deploy
+```
 
 ---
 
@@ -95,10 +116,7 @@ Coming soon:
 
 ## 🚀 Summary
 
-✅ **ACA is ideal for modern, scalable applications and microservices**
-
-✅ **Provides built-in auto-scaling and ingress routing**
-
-✅ **Significantly differs from ACI in abstraction and DevOps integration**
-
+✅ **ACA is ideal for modern, scalable applications and microservices**  
+✅ **Provides built-in auto-scaling and ingress routing**  
+✅ **Significantly differs from ACI in abstraction and DevOps integration**  
 ✅ **Quick setup with only basic Azure CLI usage required**
