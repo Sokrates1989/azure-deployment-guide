@@ -8,10 +8,11 @@ echo "----------------------------------------------"
 
 # === Script location (portable) ===
 SCRIPT_PATH="$(realpath "$0")"
-SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 # === Load helpers ===
-source "$SCRIPT_DIR/helpers/azure-login-check.sh"
+source "$ROOT_DIR/global/azure-login-check.sh"
 source "$SCRIPT_DIR/helpers/common.sh"
 
 # === Interactive questions ===
