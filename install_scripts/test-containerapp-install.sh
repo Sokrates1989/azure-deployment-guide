@@ -24,6 +24,8 @@ IMAGE=$(ask "Enter the container image (e.g. docker.io/nginxdemos/hello)" "docke
 PORT=$(ask "Enter the container port" "80")
 CPU=$(ask "Enter the number of CPUs" "0.5")
 MEMORY=$(ask "Enter memory size (e.g. 1.0Gi)" "1.0Gi")
+MIN_REPLICAS=$(ask "Enter minimum number of replicas" "0")
+MAX_REPLICAS=$(ask "Enter maximum number of replicas" "1")
 
 echo
 echo "🔧 Configuration Summary:"
@@ -65,7 +67,9 @@ az containerapp create \
   --target-port "$PORT" \
   --ingress external \
   --cpu "$CPU" \
-  --memory "$MEMORY"
+  --memory "$MEMORY" \
+  --min-replicas "$MIN_REPLICAS" \
+  --max-replicas "$MAX_REPLICAS"
 
 # === App URL ===
 FQDN=$(az containerapp show \
