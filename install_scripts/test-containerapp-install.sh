@@ -9,11 +9,11 @@ echo "----------------------------------------------"
 # === Script location (portable) ===
 SCRIPT_PATH="$(realpath "$0")"
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # === Load helpers ===
 source "$ROOT_DIR/global/azure-login-check.sh"
-source "$SCRIPT_DIR/helpers/common.sh"
+source "$ROOT_DIR/global/common.sh"
 
 # === Interactive questions ===
 RESOURCE_GROUP=$(ask "Enter the resource group name" "Test")
