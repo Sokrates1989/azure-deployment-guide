@@ -25,7 +25,7 @@ echo ""
 bash "$ROOT_DIR/global/check_for_updates.sh"
 
 
-read -p "Enter your choice [1-3/q]: " choice
+read -p "Enter your choice [1-3/b/q]: " choice
 
 case "$choice" in
     1)
