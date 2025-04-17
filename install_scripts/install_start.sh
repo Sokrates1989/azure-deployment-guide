@@ -4,6 +4,10 @@ SCRIPT_PATH="$(realpath "$0")"
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
+
+# Check for updates.
+source "$ROOT_DIR/global/check_for_updates.sh"
+
 echo ""
 echo "🏗️  Install Container Apps"
 echo "=========================="
@@ -16,6 +20,10 @@ echo ""
 echo "b) 🔙 Back to main menu"
 echo "q) ❌ Exit"
 echo ""
+
+# Check for updates.
+source "$ROOT_DIR/global/check_for_updates.sh"
+
 
 read -p "Enter your choice [1-3/q]: " choice
 

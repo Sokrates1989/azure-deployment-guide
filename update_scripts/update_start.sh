@@ -4,6 +4,10 @@ SCRIPT_PATH="$(realpath "$0")"
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
+
+# Check for updates.
+source "$ROOT_DIR/global/check_for_updates.sh"
+
 echo ""
 echo "🔄 Update Deployed Container Apps"
 echo "================================="
@@ -23,6 +27,10 @@ while IFS=$'\t' read -r name group; do
   APP_NAMES+=("$name::$group")
   ((i++))
 done <<< "$APPS"
+
+
+# Check for updates.
+source "$ROOT_DIR/global/check_for_updates.sh"
 
 echo ""
 read -p "Select an app to update [1-$((i-1)) or q to cancel]: " selection

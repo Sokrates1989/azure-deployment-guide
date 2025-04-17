@@ -3,8 +3,12 @@
 SCRIPT_PATH="$(realpath "$0")"
 ROOT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 
-# === Check if Azure CLI is installed ===
+# Check if Azure CLI is installed.
 source "$ROOT_DIR/global/check-azure-cli.sh"
+
+# Check for updates.
+source "$ROOT_DIR/global/check_for_updates.sh"
+
 
 # === Function: Open README ===
 open_readme_link() {
@@ -64,6 +68,11 @@ echo "v) 🔐 Verify Azure login                   [--verify | -v]"
 echo "u) 🔄 Update this tool                     [--update | -u]"
 echo "q) ❌ Exit"
 echo ""
+
+
+# Check for updates.
+source "$ROOT_DIR/global/check_for_updates.sh"
+
 
 read -p "Enter your choice [1-2/r/v/u/q]: " choice
 
