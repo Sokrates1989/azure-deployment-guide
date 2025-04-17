@@ -27,7 +27,7 @@ case "$choice" in
         echo "⚠️ Not implemented yet (frontend)"
         ;;
     3)
-        echo "⚠️ Not implemented yet (backend)"
+        bash "$SCRIPT_DIR/install_backend-containerapp.sh"
         ;;
     b|B)
         bash "$ROOT_DIR/start.sh"

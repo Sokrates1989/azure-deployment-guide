@@ -8,13 +8,20 @@ This guide walks you through deploying container-based applications on Azure, wi
 
 ## 📚 Table of Contents
 
-1. [📖 Overview](#-overview)  
-2. [📦 One-Command Setup (macOS)](#-one-command-setup-macos)  
-3. [⚙️ Prerequisites](#️-prerequisites)  
+1. [📖 Overview](#-overview)    
+2. [⚙️ Prerequisites](#️-prerequisites)  
+   - [☁️ AZ Login](#️-az-login)  
+   - [🐳 Docker](#-docker-needed-for-deploying-backend)  
+   - [🔧 Docker Buildx](#-docker-buildx-needed-for-deploying-backend)
+3. [📦 One-Command Setup (macOS)](#-one-command-setup-macos)
 4. [📊 ACA vs. ACI](#-aca-vs-aci)  
-5. [🚀 Getting Started with ACA](#-getting-started-with-aca)  
-6. [🔗 Further Guides](#-further-guides)  
-7. [🚀 Summary](#-summary)  
+5. [🧑‍💻 Usage](#-usage)  
+   - [▶️ Simple Usage](#️-simple-usage)  
+   - [🔀 Quick Options](#-quick-options)  
+   - [⚡ Advanced Usage: Fast Mode](#-advanced-usage-fast-mode)
+     - [📄 Template for Backend Deploy](#-template-for-backend-deploy)
+6. [🚀 Summary](#-summary)  
+
 
 ---
 
@@ -27,7 +34,50 @@ To make onboarding easy, we provide a **single shell script** that:
 
 - Automatically installs the tooling under `~/tools/az-deploy`
 - Sets up a globally accessible command: `az-deploy`
-- Launches an interactive CLI assistant to help you deploy test containers and more
+- Launches an interactive CLI assistant to help you deploy and update azure container apps (ACA)
+
+---
+
+## ⚙️ Prerequisites
+
+Make sure you have the following setup before continuing:
+
+### ☁️ AZ Login
+
+```
+# Azure CLI must be installed:
+# Installation help → https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+az version
+
+# Log in to Azure:
+az login
+
+# Select your subscription:
+az account set --subscription "<name|id>"
+```
+
+---
+
+### 🐳 Docker (Needed For deploying backend)
+
+```
+# Docker must be installed and running:
+docker version
+```
+
+> 🔗 **Installation help →** https://docs.docker.com/get-docker/
+
+---
+
+### 🔧 Docker Buildx (Needed For deploying backend)
+
+```
+# Docker Buildx must be available:
+docker buildx version
+```
+
+> 🔗 **Installation help →** https://docs.docker.com/build/install-buildx/
+
 
 ---
 
@@ -47,25 +97,9 @@ You can then use it from anywhere:
 az-deploy --test   # or: az-deploy
 ```
 
----
-
-## ⚙️ Prerequisites
-
-Make sure you have the following setup before continuing:
-
-```bash
-# Azure CLI must be installed:
-# Installation help → https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
-az version
-
-# Log in to Azure:
-az login
-
-# Select your subscription:
-az account set --subscription "<name|id>"
-```
 
 ---
+
 
 ## 📊 ACA vs. ACI
 
@@ -83,34 +117,60 @@ Quick comparison:
 
 ---
 
-## 🚀 Getting Started with ACA
+## 🧑‍💻 Usage
 
-:::info
-This section will later link to more specific guides (test container, backend and frontend templates).
-:::
+### ▶️ Simple Usage
 
-Example: Creating a basic ACA environment
+To launch the deployment tool, simply run:
 
 ```bash
-# Create a resource group
-az group create --name rg-demo-aca --location westeurope
+az-deploy
+```
 
-# Create a Container App Environment
-az containerapp env create \
-  --name demo-env \
-  --resource-group rg-demo-aca \
-  --location westeurope
+You can run this in any terminal or shell, including the integrated terminal in **VS Code** or other IDEs.
+
+Once started, a step-by-step menu will guide you through the installation or update process of your **Azure Container Apps**.
+
+---
+
+
+### 🔀 Quick Options
+
+Use the following flags for direct actions:
+
+- `-i` → Install new container apps  
+- `-c` → Change or update running container apps  
+- `-u` → Update the az-deploy tool itself  
+
+Example:
+
+```bash
+az-deploy -i
 ```
 
 ---
 
-## 🔗 Further Guides
+### ⚡ Advanced Usage: Fast Mode
 
-Coming soon:
+If you've previously deployed an ACA setup using this tool, you can reuse your settings via "Fast Mode".
 
-- [🔍 Test Container App Deployment (via `az login`)](#)
-- [🛠️ Backend Template Deployment Guide](#)
-- [🎨 Frontend Template Deployment Guide](#)
+When prompted, simply paste an edited version of your previous summary block. This saves time and avoids re-entering every detail.
+
+
+
+### 📄 Usage Guides
+
+- 📦 [Backend Deployment Guide](readmes/backend-deploy.md)  
+  ➤ Alles rund um die Bereitstellung von Backend + Reverse Proxy via Azure Container Apps
+
+- 🧪 [Test Deployment Guide](readmes/test-deploy.md)  
+  ➤ Für temporäre Test-Setups oder interne Validierung
+
+- 🌐 [Frontend Deployment Guide](readmes/frontend-deploy.md)  
+  ➤ Deployment des Frontends inkl. Domain & CDN-Konfiguration
+
+- ⚙️ [Global Setup & Tools](readmes/tool-overview.md)  
+  ➤ Wie das CLI-Tool funktioniert und wie du es aktualisierst
 
 ---
 
