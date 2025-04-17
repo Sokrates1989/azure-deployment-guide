@@ -19,7 +19,7 @@ This guide walks you through deploying container-based applications on Azure, wi
    - [▶️ Simple Usage](#️-simple-usage)  
    - [🔀 Quick Options](#-quick-options)  
    - [⚡ Advanced Usage: Fast Mode](#-advanced-usage-fast-mode)
-     - [📄 Template for Backend Deploy](#-template-for-backend-deploy)
+   - [📄 Usage Guides](#-usage-guides)
 6. [🚀 Summary](#-summary)  
 
 
