@@ -7,7 +7,7 @@ ROOT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 source "$ROOT_DIR/global/check-azure-cli.sh"
 
 # Check for updates.
-source "$ROOT_DIR/global/check_for_updates.sh"
+bash "$ROOT_DIR/global/check_for_updates.sh"
 
 
 # === Function: Open README ===
@@ -71,7 +71,7 @@ echo ""
 
 
 # Check for updates.
-source "$ROOT_DIR/global/check_for_updates.sh"
+bash "$ROOT_DIR/global/check_for_updates.sh"
 
 
 read -p "Enter your choice [1-2/r/v/u/q]: " choice

@@ -6,7 +6,7 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 
 # Check for updates.
-source "$ROOT_DIR/global/check_for_updates.sh"
+bash "$ROOT_DIR/global/check_for_updates.sh"
 
 echo ""
 echo "🏗️  Install Container Apps"
@@ -22,7 +22,7 @@ echo "q) ❌ Exit"
 echo ""
 
 # Check for updates.
-source "$ROOT_DIR/global/check_for_updates.sh"
+bash "$ROOT_DIR/global/check_for_updates.sh"
 
 
 read -p "Enter your choice [1-3/q]: " choice

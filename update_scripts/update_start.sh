@@ -6,7 +6,7 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 
 # Check for updates.
-source "$ROOT_DIR/global/check_for_updates.sh"
+bash "$ROOT_DIR/global/check_for_updates.sh"
 
 echo ""
 echo "🔄 Update Deployed Container Apps"
@@ -30,7 +30,7 @@ done <<< "$APPS"
 
 
 # Check for updates.
-source "$ROOT_DIR/global/check_for_updates.sh"
+bash "$ROOT_DIR/global/check_for_updates.sh"
 
 echo ""
 read -p "Select an app to update [1-$((i-1)) or q to cancel]: " selection
